@@ -82,6 +82,7 @@ export default {
   components: { SocialSign },
   data() {
     const validateUsername = (rule, value, callback) => {
+      // 这是用户名的验证函数
       if (!validUsername(value)) {
         callback(new Error('Please enter the correct user name'))
       } else {
@@ -89,6 +90,7 @@ export default {
       }
     }
     const validatePassword = (rule, value, callback) => {
+      // 这是密码的验证函数
       if (value.length < 6) {
         callback(new Error('The password can not be less than 6 digits'))
       } else {
@@ -100,6 +102,7 @@ export default {
         username: 'admin',
         password: '111111'
       },
+      // :rules="loginRules" 验证规则
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
         password: [{ required: true, trigger: 'blur', validator: validatePassword }]
